@@ -1,12 +1,21 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import AllBooksPage from "./pages/AllBooksPage";
+import AddBooksPage from "./pages/AddBookPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <div>
-      <div>
+      <Router>
         <Navbar />
-      </div>
+        <Routes>
+          <Route path="/Homepage" element={<HomePage />} />
+          <Route path="/Allbooks" element={<AllBooksPage />} />
+          <Route path="/Addbook" element={<AddBooksPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

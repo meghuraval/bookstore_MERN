@@ -12,7 +12,8 @@ const addBook = async (req, res) => {
     const savedBook = await newBook.save();
     res.status(200).json("Book saved succesfully" + savedBook);
   } catch (error) {
-    console.log(error).status(400);
+    console.log(error);
+    return res.status(500).send("Server Error Encountered");
   }
   //path for this is "http://localhost:3000/books/add"
 };
@@ -39,7 +40,7 @@ const updateBook = async (req, res) => {
     const { title, author, description } = req.body;
 
     console.log("Book ID:", bookId);
-    console.log("Updated data:", { title, author, description });
+    console.log("Updated data:", { title, author, description, picture });
 
     const updatedBook = await Book.findByIdAndUpdate(
       bookId,

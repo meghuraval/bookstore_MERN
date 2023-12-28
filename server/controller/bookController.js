@@ -47,23 +47,42 @@ const updateBook = async (req, res) => {
       { new: true }
     );
 
-    console.log("Updated book:", updatedBook); // Check if the book is updated
+    console.log("Updated book:", updatedBook);
 
     if (!updatedBook) {
       return res.status(404).json("Book not found");
     }
 
-    return res.status(200).json(updatedBook); // Return the updated book
+    return res.status(200).json(updatedBook);
   } catch (error) {
     console.error("Error updating book:", error);
     return res.status(500).json("Error updating the book");
   }
+  //path for this is "http://localhost:3000/books/book/:id"
 };
 
-//path for this is "http://localhost:3000/books/book/:id"
+const deleteBook = async (req, res) => {
+  try {
+    const bookId = req.params.id;
+
+    const foundBook = await Book.findById(bookId);
+
+    if (!foundBook) {
+      return res.status(404).json("Book not found");
+    }
+
+    await Book.findByIdAndDelete(bookId);
+
+    res.status(200).json("Book successfully deleted");
+  } catch (error) {
+    res.status(400).json("Error fetching the book");
+  }
+  //path for this is "http://localhost:3000/books/book/:id"
+};
 
 module.exports = {
   addBook,
   retrieveBook,
   updateBook,
+  deleteBook,
 };

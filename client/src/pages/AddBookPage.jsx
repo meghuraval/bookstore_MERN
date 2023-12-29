@@ -1,9 +1,11 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { BookContext } from "../utils/context/BookContext";
 
 export default function AddBookPage() {
+  const fileInputRef = useRef(null);
+
   const { setSuccessMessage, setErrorMessage, successMessage, errorMessage } =
     useContext(BookContext);
 
@@ -31,6 +33,12 @@ export default function AddBookPage() {
     }
   };
 
+  const resetFileInput = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.value = null;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("handle submit fxn is triggered");
@@ -55,17 +63,24 @@ export default function AddBookPage() {
       );
       console.log("Book added successfully:", response.data);
       setSuccessMessage(true);
+      setTimeout(() => {
+        setSuccessMessage(false);
+      }, 3000);
 
-      setFormData({
+      setFormData((prevState) => ({
+        ...prevState,
         title: "",
         author: "",
         description: "",
         price: "",
-        picture: "",
-      });
+      }));
+      resetFileInput();
     } catch (error) {
       console.error("Error adding book:", error);
       setErrorMessage(true);
+      setTimeout(() => {
+        setErrorMessage(false);
+      }, 3000);
     }
   };
 
@@ -73,14 +88,14 @@ export default function AddBookPage() {
     const timer = setTimeout(() => {
       setErrorMessage(false);
       setSuccessMessage(false);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [setErrorMessage, setSuccessMessage]);
 
   return (
     <div className="bg-slate-500 h-screen">
-      <div>
+      <div className="bg-slate-500">
         <div className="flex flex-col">
           <h1 className="font-semibold text-center mt-7 text-3xl">Add Book</h1>
           <form onSubmit={handleSubmit}>
@@ -140,6 +155,7 @@ export default function AddBookPage() {
                 accept="image/*"
                 name="picture"
                 onChange={handleChange}
+                ref={fileInputRef}
                 required
               />
             </div>
@@ -155,7 +171,7 @@ export default function AddBookPage() {
             )}
             <button
               type="submit"
-              className="bg-slate-600 rounded-md h-10 w-20 ml-[45%] mt-[5%] text-white hover:scale-105"
+              className="bg-slate-600 rounded-md mb-5 h-10 w-20 ml-[45%] mt-[5%] text-white hover:scale-105 hover:bg-blue-500"
             >
               Add Book
             </button>

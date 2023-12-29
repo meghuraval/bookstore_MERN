@@ -1,8 +1,12 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { BookContext } from "../utils/context/BookContext";
 
 export default function AddBookPage() {
+  const { setSuccessMessage, setErrorMessage, successMessage, errorMessage } =
+    useContext(BookContext);
+
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -30,15 +34,14 @@ export default function AddBookPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("handle submit fxn is triggered");
-    const { title, author, description, picture } = formData;
+    const { title, author, description, picture, price } = formData;
 
     const newBookData = new FormData();
     newBookData.append("title", title);
     newBookData.append("author", author);
     newBookData.append("description", description);
+    newBookData.append("price", price);
     newBookData.append("picture", picture);
-
-    console.log("handle submit fxn is triggered part 2");
 
     try {
       const response = await axios.post(
@@ -51,18 +54,35 @@ export default function AddBookPage() {
         }
       );
       console.log("Book added successfully:", response.data);
-      // You can perform further actions here after successful book addition
+      setSuccessMessage(true);
+
+      setFormData({
+        title: "",
+        author: "",
+        description: "",
+        price: "",
+        picture: "",
+      });
     } catch (error) {
       console.error("Error adding book:", error);
-      // Handle errors here
+      setErrorMessage(true);
     }
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setErrorMessage(false);
+      setSuccessMessage(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [setErrorMessage, setSuccessMessage]);
 
   return (
     <div className="bg-slate-500 h-screen">
       <div>
         <div className="flex flex-col">
-          <h1 className="font-semibold text-center mt-10 text-3xl">Add Book</h1>
+          <h1 className="font-semibold text-center mt-7 text-3xl">Add Book</h1>
           <form onSubmit={handleSubmit}>
             <div className="mt-10">
               <label className="ml-10">Title:</label>
@@ -88,6 +108,18 @@ export default function AddBookPage() {
                 required
               />
             </div>
+            <div className="mt-10 mb-10">
+              <label className="ml-10">Selling Price:</label>
+              <br />
+              <input
+                className="ml-10 mt-5 w-[40%]"
+                type="text"
+                name="price"
+                value={formData.price}
+                onChange={handleChange}
+                required
+              />
+            </div>
             <div className="mb-10 h-[250px]">
               <label className="ml-10 w-[40]">Description:</label>
               <br />
@@ -108,11 +140,22 @@ export default function AddBookPage() {
                 accept="image/*"
                 name="picture"
                 onChange={handleChange}
+                required
               />
             </div>
+            {errorMessage && (
+              <p className="bg-red-600 py-1 text-center mt-3 text-white">
+                Failed to add book at this time, please try again later
+              </p>
+            )}
+            {successMessage && (
+              <p className="bg-green-600 py-1 text-center mt-3 text-white">
+                Succesfully added book
+              </p>
+            )}
             <button
               type="submit"
-              className="bg-slate-600 rounded-md h-10 w-20 ml-[45%] mt-20 text-white hover:scale-105"
+              className="bg-slate-600 rounded-md h-10 w-20 ml-[45%] mt-[5%] text-white hover:scale-105"
             >
               Add Book
             </button>

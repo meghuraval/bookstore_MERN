@@ -17,6 +17,10 @@ const bookSchema = new mongoose.Schema({
     contentType: String,
     data: Buffer,
   },
+  price: {
+    type: Number,
+    required: true,
+  },
 });
 
 bookSchema.index({ title: 1, author: 1 }, { unique: true });

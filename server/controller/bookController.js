@@ -2,11 +2,12 @@ const Book = require("../models/bookModel");
 
 const addBook = async (req, res) => {
   try {
-    const { title, author, description } = req.body;
+    const { title, author, description, price } = req.body;
     const newBook = new Book({
       title,
       author,
       description,
+      price,
     });
 
     const savedBook = await newBook.save();
@@ -37,14 +38,14 @@ const retrieveBook = async (req, res) => {
 const updateBook = async (req, res) => {
   try {
     const bookId = req.params.id;
-    const { title, author, description } = req.body;
+    const { title, author, description, price } = req.body;
 
     console.log("Book ID:", bookId);
-    console.log("Updated data:", { title, author, description, picture });
+    console.log("Updated data:", { title, author, description, price });
 
     const updatedBook = await Book.findByIdAndUpdate(
       bookId,
-      { title, author, description },
+      { title, author, description, price },
       { new: true }
     );
 

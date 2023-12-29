@@ -103,7 +103,7 @@ export default function AddBookPage() {
               <label className="ml-10">Title:</label>
               <br />
               <input
-                className="ml-10 mt-5 w-[40%]"
+                className="ml-10 mt-5 w-[285px] rounded-md"
                 type="text"
                 name="title"
                 value={formData.title}
@@ -115,7 +115,7 @@ export default function AddBookPage() {
               <label className="ml-10">Author:</label>
               <br />
               <input
-                className="ml-10 mt-5 w-[40%]"
+                className="ml-10 mt-5 w-[285px] rounded-md"
                 type="text"
                 name="author"
                 value={formData.author}
@@ -127,7 +127,7 @@ export default function AddBookPage() {
               <label className="ml-10">Selling Price:</label>
               <br />
               <input
-                className="ml-10 mt-5 w-[40%]"
+                className="ml-10 mt-5 w-[285px] rounded-md"
                 type="text"
                 name="price"
                 value={formData.price}
@@ -139,7 +139,7 @@ export default function AddBookPage() {
               <label className="ml-10 w-[40]">Description:</label>
               <br />
               <textarea
-                className="ml-10 mt-5 w-[80%] h-[230px]"
+                className="ml-10 mt-5 w-[500px] h-[230px] rounded-xl"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}

@@ -13,9 +13,8 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  picture: {
-    contentType: String,
-    data: Buffer,
+  pictureURL: {
+    type: String,
   },
   price: {
     type: Number,

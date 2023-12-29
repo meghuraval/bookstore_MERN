@@ -3,6 +3,7 @@ const Book = require("../models/bookModel");
 const addBook = async (req, res) => {
   try {
     const { title, author, description, price } = req.body;
+
     const newBook = new Book({
       title,
       author,
@@ -33,6 +34,19 @@ const retrieveBook = async (req, res) => {
     res.status(400).json("Error fetching the book");
   }
   //path for this is "http://localhost:3000/books/book/:id"
+};
+
+const retrieveAllBooks = async (req, res) => {
+  try {
+    const allBooks = await Book.find();
+    if (!allBooks || allBooks.length === 0) {
+      return res.status(404).json("No books found");
+    }
+    res.status(200).json(allBooks);
+  } catch (error) {
+    console.log(error);
+  }
+  //path for this is "http://localhost:3000/books/allbooks"
 };
 
 const updateBook = async (req, res) => {
@@ -87,4 +101,5 @@ module.exports = {
   retrieveBook,
   updateBook,
   deleteBook,
+  retrieveAllBooks,
 };

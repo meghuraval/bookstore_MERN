@@ -20,7 +20,6 @@ const Navbar = () => {
             Home Page
           </li>
         </Link>
-        <li className="hover:text-red-600 transition duration-200">My Books</li>
         <Link to="/Allbooks">
           <li className="hover:text-red-600 transition duration-200">
             All Books

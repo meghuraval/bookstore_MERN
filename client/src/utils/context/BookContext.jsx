@@ -9,6 +9,12 @@ export const BookContext = createContext();
 export const BookProvider = ({ children }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isCardExpanded, setIsCardExpanded] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const toggleCardExpansion = (cardId) => {
+    setSelectedCard(cardId === selectedCard ? null : cardId);
+  };
 
   return (
     <BookContext.Provider
@@ -17,6 +23,10 @@ export const BookProvider = ({ children }) => {
         setSuccessMessage,
         errorMessage,
         setErrorMessage,
+        isCardExpanded,
+        setIsCardExpanded,
+        toggleCardExpansion,
+        selectedCard,
       }}
     >
       {children}

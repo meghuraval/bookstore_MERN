@@ -1,23 +1,65 @@
 const Book = require("../models/bookModel");
+const { Storage } = require("@google-cloud/storage");
+const storage = new Storage({
+  projectId: "mern-bookstore-gcp",
+  keyFilename: "mern-bookstore-gcp-dfb464dd6600.json",
+});
 
 const addBook = async (req, res) => {
   try {
     const { title, author, description, price } = req.body;
+    const pictureFile = req.file;
 
-    const newBook = new Book({
-      title,
-      author,
-      description,
-      price,
+    // Validate if a picture file is uploaded
+    if (!pictureFile) {
+      return res.status(400).send("No file uploaded");
+    }
+
+    const { Storage } = require("@google-cloud/storage");
+    const storage = new Storage({
+      projectId: "mern-bookstore-gcp",
+      keyFilename: "mern-bookstore-gcp-dfb464dd6600.json",
     });
 
-    const savedBook = await newBook.save();
-    res.status(200).json("Book saved succesfully" + savedBook);
+    const bucket = storage.bucket("bookstore-images-storage");
+    const fileName = `book_${Date.now()}.png`;
+    const blob = bucket.file(fileName);
+    const blobStream = blob.createWriteStream({
+      metadata: {
+        contentType: pictureFile.mimetype,
+      },
+      resumable: false,
+    });
+
+    blobStream.on("error", (error) => {
+      console.log("Error uploading to GCP:", error);
+      return res.status(500).send("Error uploading to GCP");
+    });
+
+    blobStream.on("finish", async () => {
+      const pictureURL = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
+      const newBook = new Book({
+        title,
+        author,
+        description,
+        price,
+        pictureURL,
+      });
+
+      try {
+        const savedBook = await newBook.save();
+        res.status(200).json("Book saved successfully" + savedBook);
+      } catch (error) {
+        console.log(error);
+        return res.status(500).send("Error saving book");
+      }
+    });
+
+    blobStream.end(req.file.buffer);
   } catch (error) {
-    console.log(error);
+    console.error("Error adding book:", error);
     return res.status(500).send("Server Error Encountered");
   }
-  //path for this is "http://localhost:3000/books/add"
 };
 
 const retrieveBook = async (req, res) => {

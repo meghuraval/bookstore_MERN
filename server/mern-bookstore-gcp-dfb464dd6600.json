@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "mern-bookstore-gcp",
+  "private_key_id": "dfb464dd6600f2621e2ac6f333741afad3190aa1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDR6AgoEhgXBx/L\nZW+UwnTStMzI6QDlhB75UJJLR19ZXsLTAN5orh/W1AVpplGqkoV3kN1vzGTtHf3e\nao6uq1P8Y7t0z2cwdl66mOKW91VkNidrqXvzxbPNUsikINQcTujicBnVUbsjXcb4\nbbWgMzyGMcvNjDep9GHhC3HUXTwLZzPxmfzaW2/dKA0ycVknfd99/q/bq15gaCVM\nA2jb8ckYDTiTUbtmsKaBZjmyjCKLNIGtpfimL0i7fQKtBZPdJc5RhhSALm4L2YiH\nTPwnofinImzShuPNucUHFMvJqIpfxS3aVMAvDFMbHCXStdINsnzZYS1khVJE9lCG\nzuZut5oJAgMBAAECggEACeAXc0oFfrD/QYKbw20yDPltc+AKcFQohOTR8bq4UKw1\noyCQDQGVTi0akTri7iNQk+NXToTGORNZt9anQveczuu1Hr8JhRG8luaEdfoS7fWZ\nIgshGHnrGKH6kI9aQi6wNnpz9dP9QusfQbkfoIkfatX5xRKUJY5fYH3LfeRiLPDL\nOn/X0AgFloxygkyTaMh8F619YQzCc7xXHf4ZcmKD6jO87j+h/fkSJDbAeLuA+dtm\nhotnnNtc7EvKQlmPTzBzTbrlnqO4jiCKKW1qlQg0xsjFzxWw3JEIgPEsqEGdamf7\nq060SiBZbk4F30Zz3Gm4QQIjWgy8Ib/teDuelUR39QKBgQDr7GGy9w0SD4b7tTmY\noISHhBL5EShHeLMbvqopt+1K5YEVBf6aCWGeuezpj0R7c00G6IYFbHd3t8L/NaN6\ndymzAyVlC6Biwcg8gfzWAJgOX3sCqhC1AvgkUHbvqpPNhlbObXqgaLrLvK2FFozw\nnk3HxOzDZMXd0yoMPeSFw2u4LwKBgQDjxN3znr0NEHC3o1IbrKReWx9OM6Zk5hNh\nrUXXQXvf6N7uSNnLS/99234YceXbkqjzgnV30twePEfl/dU6fPrYEuag4XvC/wOS\nw3uhoDTbT9cMImgSioBNag5BD1ejZ8SS19Igp5Sd6P4P99qS15rhnhVH+jae+V3J\nCKTsAwqLRwKBgQCFSNFVSy9uMal/0L2OVbkp2lrhrWjFIBKILSpzUT7VHl3To8RX\n/87P3phSxybYW6Z7rafxrnq7/uxCRGpsSKAdSzy4Hl5pDLN0Q7e0qzc8f4K+WZgA\nu4G2+mKHOiYwaaHnE4DA2QoXCiw50Sik07p7jux34xnKHX9W1SyiyWm07wKBgCJY\n/suNRZ8huo3G4EvyFftwrGDjoxUWKRgSxDR42JBkkrHGZKmmtUmqfvJ6wpoBHN9T\n7hj6wF0C5CjHxY8DZ+SLvSHHvx0hzc0lE5DFExN7j8dxrNYW8tA5zRp8kM/Ah0FJ\nsJNiEiRaDW4lB14bi2y4pSbska4Zls4JMq2wq7djAoGAAXapREwGTmx8+RKE5Bf5\nUevevVN2d4ZufFGPL0gpbrULuuzkXYxyGRJqBj+RY8ki/9dbN4urNQMzXMEAlLC4\nR5cfkOkd9U5TwTHIKHEVbAuRaTAdbF+3eMwrtlwUGbA8vhxm8A9yKY19EWS9Ho2W\n4A2nM1KrqAAEyIvUeJvmTWU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mern-bookstore-gcp-service-acc@mern-bookstore-gcp.iam.gserviceaccount.com",
+  "client_id": "111702790796031286353",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mern-bookstore-gcp-service-acc%40mern-bookstore-gcp.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -28,12 +28,13 @@ export default function AllBooksPage() {
           <div key={book._id}>
             <h2>{book.title}</h2>
             <p>{book.description}</p>
-            <p>Author:{book.author}</p>
-            <img src={``} alt={book.title}></img>
+            <p>Author: {book.author}</p>
+            {book.pictureURL && ( // Check if pictureURL exists
+              <img src={book.pictureURL} alt={book.title}></img>
+            )}
           </div>
         ))}
       </div>
     </div>
   );
 }
-//find a way to show book cards in this page with all books in database

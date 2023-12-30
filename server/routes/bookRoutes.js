@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Book = require("../models/bookModel");
+const upload = require("../utils/multerMiddleWare");
+
 const {
   addBook,
   retrieveBook,
@@ -9,7 +10,7 @@ const {
   deleteBook,
 } = require("../controller/bookController");
 
-router.post("/add", addBook);
+router.post("/add", upload.single("picture"), addBook);
 router.get("/book/:id", retrieveBook);
 router.get("/allbooks", retrieveAllBooks);
 router.put("/book/:id", updateBook);

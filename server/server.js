@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 require("dotenv").config();
 const bookRouter = require("../server/routes/bookRoutes");
+const userRouter = require("../server/routes/userRoutes");
 const cors = require("cors");
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.json());
 mongoose.connect(process.env.MONGODB_URL);
 
 app.use("/books", bookRouter);
+app.use("/user", userRouter);
 
 app.use(
   cors({

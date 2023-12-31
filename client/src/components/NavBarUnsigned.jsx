@@ -30,6 +30,7 @@ const Navbar = () => {
             Add Book
           </li>
         </Link>
+        <li className="hover:text-red-600 transition duration-200">Sign Up</li>
       </ul>
     </div>
   );

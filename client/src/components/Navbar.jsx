@@ -20,15 +20,14 @@ const Navbar = () => {
             Home Page
           </li>
         </Link>
-        <li className="hover:text-red-600 transition duration-200">My Books</li>
         <Link to="/Allbooks">
           <li className="hover:text-red-600 transition duration-200">
             All Books
           </li>
         </Link>
-        <Link to="/Addbook">
+        <Link to="/SignIn">
           <li className="hover:text-red-600 transition duration-200">
-            Add Book
+            Sign In
           </li>
         </Link>
       </ul>

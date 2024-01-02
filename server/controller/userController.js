@@ -1,4 +1,6 @@
 const User = require("../models/userModel");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const signUpUser = async (req, res) => {
   const { email, password, username, reEnterPassword } = req.body;
@@ -49,8 +51,14 @@ const signInUser = async (req, res) => {
       return res.status(401).json({ error: "Invalid password" });
     }
 
+    const token = jwt.sign({ userId: user._id }, "token", { expiresIn: "1h" });
+
     // If the password matches, user is authenticated successfully
-    res.json({ message: "User authenticated successfully" });
+    res.json({
+      token,
+      _id: user._id,
+      message: "User authenticated successfully",
+    });
     console.log("user authenticated successfully");
   } catch (error) {
     res.status(500).json({ error: "Server error" });
@@ -100,9 +108,32 @@ const deleteUser = async (req, res) => {
   //route for this will be "http://localhost:3000/user/:id"
 };
 
+const getUserData = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({ error: "user not found" });
+    }
+
+    res.json({
+      username: user.username,
+      email: user.email,
+      password: user.password,
+      _id: user._id,
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+  //route for this will be "http://localhost:3000/user/userdetails/:id"
+};
+
 module.exports = {
   signUpUser,
   signInUser,
   updateUser,
   deleteUser,
+  getUserData,
 };

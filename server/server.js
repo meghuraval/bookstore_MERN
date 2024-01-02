@@ -7,13 +7,6 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(express.json());
-
-mongoose.connect(process.env.MONGODB_URL);
-
-app.use("/books", bookRouter);
-app.use("/user", userRouter);
-
 app.use(
   cors({
     origin: "http://localhost:5173/Addbook",
@@ -21,6 +14,13 @@ app.use(
     allowedHeaders: "Content-Type,Authorization",
   })
 );
+
+app.use(express.json());
+
+mongoose.connect(process.env.MONGODB_URL);
+
+app.use("/books", bookRouter);
+app.use("/user", userRouter);
 
 app.listen(process.env.PORT, () => {
   console.log("listening on port " + process.env.PORT);

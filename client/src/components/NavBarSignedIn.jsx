@@ -15,9 +15,9 @@ const Navbar = () => {
         </Link>
       </div>
       <ul className="flex ml-auto pr-5 mt-8 space-x-10 font-semibold cursor-pointer">
-        <Link to="/Homepage">
+        <Link to="/AccountPage">
           <li className="hover:text-red-600 transition duration-200">
-            Home Page
+            Account
           </li>
         </Link>
         <Link to="/Allbooks">
@@ -30,7 +30,7 @@ const Navbar = () => {
             Add Book
           </li>
         </Link>
-        <li className="hover:text-red-600 transition duration-200">Sign Up</li>
+        <li className="hover:text-red-600 transition duration-200">My Books</li>
       </ul>
     </div>
   );

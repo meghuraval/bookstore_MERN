@@ -7,10 +7,12 @@ const {
   updateUser,
   deleteUser,
   signInUser,
+  getUserData,
 } = require("../controller/userController");
 
 router.post("/createuser", signUpUser);
 router.post("/signin", signInUser);
+router.get("/userdetails/:id", getUserData);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 

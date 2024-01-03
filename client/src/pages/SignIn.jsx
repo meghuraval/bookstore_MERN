@@ -30,11 +30,12 @@ export const SignIn = () => {
         password,
       });
 
-      const { token, _id } = response.data;
+      const { token, _id, userName } = response.data;
       localStorage.setItem("token", token);
       localStorage.setItem("email", email);
       localStorage.setItem("password", password);
       localStorage.setItem("userId", _id);
+      localStorage.setItem("userName", userName);
 
       setAuthenticationStatus(true);
       console.log(response.data);

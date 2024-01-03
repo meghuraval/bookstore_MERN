@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import { SignIn } from "./pages/Signin";
 import { useContext } from "react";
 import AccountPage from "./pages/AccountPage";
+import MyBooksPage from "./pages/MyBooksPage";
 import { BookContext } from "./utils/context/BookContext";
 import SignUp from "./pages/SignUp";
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/AccountPage" element={<AccountPage />} />
+          <Route path="/MyBooksPage" element={<MyBooksPage />} />
         </Routes>
       </Router>
     </div>

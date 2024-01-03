@@ -57,6 +57,7 @@ const signInUser = async (req, res) => {
     res.json({
       token,
       _id: user._id,
+      userName: user.username,
       message: "User authenticated successfully",
     });
     console.log("user authenticated successfully");

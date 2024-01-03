@@ -30,7 +30,11 @@ const Navbar = () => {
             Add Book
           </li>
         </Link>
-        <li className="hover:text-red-600 transition duration-200">My Books</li>
+        <Link to="/MyBooksPage">
+          <li className="hover:text-red-600 transition duration-200">
+            My Books
+          </li>
+        </Link>
       </ul>
     </div>
   );

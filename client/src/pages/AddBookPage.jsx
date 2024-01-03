@@ -14,6 +14,7 @@ export default function AddBookPage() {
     author: "",
     description: "",
     picture: null,
+    addedBy: "",
   });
 
   const handleChange = (e) => {
@@ -39,10 +40,22 @@ export default function AddBookPage() {
     }
   };
 
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      console.log("user id: " + userId);
+      setFormData((prevState) => ({
+        ...prevState,
+        addedBy: userId,
+      }));
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("handle submit fxn is triggered");
-    const { title, author, description, picture, price } = formData;
+    const uploadedByUsername = localStorage.getItem("username");
+    const { title, author, description, picture, price, addedBy } = formData;
 
     const newBookData = new FormData();
     newBookData.append("title", title);
@@ -50,6 +63,8 @@ export default function AddBookPage() {
     newBookData.append("description", description);
     newBookData.append("price", price);
     newBookData.append("picture", picture);
+    newBookData.append("userId", addedBy);
+    newBookData.append("uploadedByUsername", uploadedByUsername);
 
     try {
       const response = await axios.post(

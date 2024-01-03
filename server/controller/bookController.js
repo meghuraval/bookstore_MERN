@@ -9,6 +9,8 @@ const addBook = async (req, res) => {
   try {
     const { title, author, description, price } = req.body;
     const pictureFile = req.file;
+    const userId = req.body.userId;
+    const uploadedByUsername = req.body.uploadedByUsername;
 
     // Validate if a picture file is uploaded
     if (!pictureFile) {
@@ -44,6 +46,8 @@ const addBook = async (req, res) => {
         description,
         price,
         pictureURL,
+        addedBy: userId,
+        uploadedByUsername,
       });
 
       try {
@@ -138,10 +142,28 @@ const deleteBook = async (req, res) => {
   //path for this is "http://localhost:3000/books/book/:id"
 };
 
+const getUserBooks = async (req, res) => {
+  const userId = req.params.userId;
+
+  try {
+    const userBooks = await Book.findById({ addedBy: userId });
+
+    if (!userBooks || userBooks.length === 0) {
+      return res.status(404).json({ error: "User has not aded any books yet" });
+    }
+
+    res.status(200).json(userBooks);
+  } catch (error) {
+    res.status(500).json({ error: "server error" });
+  }
+  //path for this is "http://localhost:3000/books/user/:userId"
+};
+
 module.exports = {
   addBook,
   retrieveBook,
   updateBook,
   deleteBook,
   retrieveAllBooks,
+  getUserBooks,
 };

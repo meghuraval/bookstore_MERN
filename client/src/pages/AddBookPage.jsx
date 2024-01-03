@@ -54,8 +54,14 @@ export default function AddBookPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("handle submit fxn is triggered");
-    const uploadedByUsername = localStorage.getItem("username");
-    const { title, author, description, picture, price, addedBy } = formData;
+    const userId = localStorage.getItem("userId");
+    const uploadedByUsername = localStorage.getItem("userName");
+    console.log(uploadedByUsername);
+    setFormData((prevState) => ({
+      ...prevState,
+      uploadedByUsername: uploadedByUsername,
+    }));
+    const { title, author, description, picture, price } = formData;
 
     const newBookData = new FormData();
     newBookData.append("title", title);
@@ -63,9 +69,8 @@ export default function AddBookPage() {
     newBookData.append("description", description);
     newBookData.append("price", price);
     newBookData.append("picture", picture);
-    newBookData.append("userId", addedBy);
+    newBookData.append("userId", userId);
     newBookData.append("uploadedByUsername", uploadedByUsername);
-
     try {
       const response = await axios.post(
         "http://localhost:3000/books/add",
@@ -76,6 +81,7 @@ export default function AddBookPage() {
           },
         }
       );
+      localStorage.setItem("uploadedByUsername", uploadedByUsername);
       console.log("Book added successfully:", response.data);
       setSuccessMessage(true);
       setTimeout(() => {

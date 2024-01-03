@@ -7,33 +7,28 @@ import BookModal from "../modals/BookModal";
 function BookCard({ book }) {
   const { selectedCard, toggleCardExpansion } = useContext(BookContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [uploadedBy, setUploadBy] = useState(null);
+  const [uploadedByUsername, setUploadedByUsername] = useState("anonymous");
+
+  console.log(uploadedByUsername);
 
   const handleCardClick = () => {
     toggleCardExpansion(book._id);
     setIsModalOpen(!isModalOpen);
   };
 
-  const usernamebook = book.email;
-
-  useEffect(() => {
-    console.log("Book object received in BookCard:", book);
-    console.log("Uploaded By:", book.uploadedByUsername || "anonymous");
-  }, [book]);
-
   const closeModal = () => {
     toggleCardExpansion(null);
     setIsModalOpen(false);
   };
 
-  function BookCard({ book }) {
-    useEffect(() => {
-      // Log the received book prop to check its content
-      console.log("Book object received in BookCard:", book);
-    }, [book]);
-
-    // ... rest of your BookCard component code
-  }
+  useEffect(() => {
+    console.log("Book object received in BookCard:", book);
+    const storedUsername = localStorage.getItem("uploadedByUsername");
+    console.log(storedUsername);
+    if (storedUsername) {
+      setUploadedByUsername(storedUsername);
+    }
+  }, [book]);
 
   return (
     <div className="flex justify-center">
@@ -61,13 +56,7 @@ function BookCard({ book }) {
                 <p className="text-sm text-green-700">
                   Listed price: ${book.price}
                 </p>
-                <p>Uploaded By: ${book._id}</p>
-                <p>
-                  Uploaded By:{" "}
-                  {book.uploadedByUsername
-                    ? book.uploadedByUsername
-                    : "anonymous"}
-                </p>
+                <p>Uploaded By: {uploadedByUsername}</p>
               </div>
             </div>
           </div>
@@ -77,4 +66,5 @@ function BookCard({ book }) {
     </div>
   );
 }
+
 export default BookCard;

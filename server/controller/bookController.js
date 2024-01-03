@@ -7,10 +7,10 @@ const storage = new Storage({
 
 const addBook = async (req, res) => {
   try {
-    const { title, author, description, price } = req.body;
-    const pictureFile = req.file;
     const userId = req.body.userId;
     const uploadedByUsername = req.body.uploadedByUsername;
+    const { title, author, description, price } = req.body;
+    const pictureFile = req.file;
 
     // Validate if a picture file is uploaded
     if (!pictureFile) {

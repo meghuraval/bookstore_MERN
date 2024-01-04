@@ -6,6 +6,17 @@ export const MyBooks = () => {
   const userId = localStorage.getItem("userName"); // Retrieve userId from localStorage or context
   const [userBooks, setUserBooks] = useState([]);
 
+  // Function to delete a book
+  const deleteBook = async (bookId) => {
+    try {
+      await axios.delete(`http://localhost:3000/books/book/${bookId}`);
+      // Refresh the book list after deletion
+      fetchUserBooks();
+    } catch (error) {
+      console.log("Error deleting book:", error);
+    }
+  };
+
   const fetchUserBooks = useCallback(async () => {
     try {
       const response = await axios.get(
@@ -41,6 +52,7 @@ export const MyBooks = () => {
               </div>
               <div className="card-body p-3">
                 <p className="mb-3">{book.description}</p>
+                <p onClick={() => deleteBook(book._id)}> trash can </p>
                 {/* Add more details or style as needed */}
               </div>
             </div>

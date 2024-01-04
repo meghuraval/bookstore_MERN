@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const Book = require("../models/bookModel");
 
 const signUpUser = async (req, res) => {
   const { email, password, username, reEnterPassword } = req.body;
@@ -95,18 +96,30 @@ const deleteUser = async (req, res) => {
   const { id } = req.params;
 
   try {
-    // Find the user by ID and delete
-    const user = await User.findByIdAndDelete(id);
+    // Find the user by ID
+    const user = await User.findById(id);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    res.json({ message: "User deleted successfully" });
+    // Find all books associated with the user's ID
+    const userBooks = await Book.find({ addedBy: id });
+
+    // Delete the found books
+    await Book.deleteMany({ addedBy: id });
+
+    // Delete the user by ID
+    await User.findByIdAndDelete(id);
+
+    res.json({
+      message: "User and associated books deleted successfully",
+      userBooks,
+    });
   } catch (error) {
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json(error.message);
   }
-  //route for this will be "http://localhost:3000/user/:id"
+  // Route for this will be "http://localhost:3000/user/:id"
 };
 
 const getUserData = async (req, res) => {

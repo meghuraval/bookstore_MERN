@@ -25,6 +25,28 @@ export default function AccountPage() {
     password: "",
   });
 
+  const deleteUser = async () => {
+    try {
+      const userId = localStorage.getItem("userId");
+
+      if (!userId) {
+        console.log("user id not found");
+        return;
+      }
+
+      await axios.delete(`http://localhost:3000/user/${userId}`);
+
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+      navigate("/SignIn");
+      console.log("Deleted user successfully");
+    } catch (error) {
+      console.log("Error Deleting User:", error);
+    }
+  };
+
   const handleSignOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
@@ -181,7 +203,10 @@ export default function AccountPage() {
       >
         Sign out ✌️
       </button>
-      <button className="flex m-auto bg-red-500 text-white rounded-lg py-2 px-2 hover:scale-105 mt-5">
+      <button
+        onClick={deleteUser}
+        className="flex m-auto bg-red-500 text-white rounded-lg py-2 px-2 hover:scale-105 mt-5"
+      >
         Delete Account 😭
       </button>
     </div>

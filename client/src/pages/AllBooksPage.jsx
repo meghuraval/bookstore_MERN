@@ -23,9 +23,11 @@ export default function AllBooksPage() {
 
   return (
     <div className="flex flex-wrap flex-row">
-      {books.map((book) => (
-        <BookCard key={book._id} book={book} />
-      ))}
+      {books.length === 0 ? (
+        <div className="flex m-auto py-[40%] text-lg">No books added yet</div>
+      ) : (
+        books.map((book) => <BookCard key={book._id} book={book} />)
+      )}
     </div>
   );
 }

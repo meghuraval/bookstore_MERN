@@ -7,28 +7,20 @@ import BookModal from "../modals/BookModal";
 function BookCard({ book }) {
   const { selectedCard, toggleCardExpansion } = useContext(BookContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [uploadedByUsername, setUploadedByUsername] = useState("anonymous");
-
-  console.log(uploadedByUsername);
-
+  const [uploadedByUsername, setUploadedByUsername] = useState();
   const handleCardClick = () => {
     toggleCardExpansion(book._id);
     setIsModalOpen(!isModalOpen);
   };
 
+  useEffect(() => {
+    setUploadedByUsername(book.uploadedByUsername);
+  }, [book.uploadedByUsername]);
+
   const closeModal = () => {
     toggleCardExpansion(null);
     setIsModalOpen(false);
   };
-
-  useEffect(() => {
-    console.log("Book object received in BookCard:", book);
-    const storedUsername = localStorage.getItem("uploadedByUsername");
-    console.log(storedUsername);
-    if (storedUsername) {
-      setUploadedByUsername(storedUsername);
-    }
-  }, [book]);
 
   return (
     <div className="flex justify-center">
@@ -56,12 +48,13 @@ function BookCard({ book }) {
                 <p className="text-sm text-green-700">
                   Listed price: ${book.price}
                 </p>
-                <p>Uploaded By: {uploadedByUsername}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <p>Uploaded By: {uploadedByUsername}</p>
+
       {isModalOpen && <BookModal book={book} onClose={closeModal} />}
     </div>
   );

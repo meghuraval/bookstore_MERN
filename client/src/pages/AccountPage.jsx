@@ -40,6 +40,8 @@ export default function AccountPage() {
       localStorage.removeItem("userId");
       localStorage.removeItem("email");
       localStorage.removeItem("password");
+      localStorage.removeItem("userName");
+      setIsAuthenticatedNavbar(false);
       navigate("/SignIn");
       console.log("Deleted user successfully");
     } catch (error) {

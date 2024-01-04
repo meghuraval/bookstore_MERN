@@ -144,10 +144,10 @@ const deleteBook = async (req, res) => {
 
 const getUserBooks = async (req, res) => {
   const userId = req.params.userId;
+  console.log("User ID:", userId);
 
   try {
-    const userBooks = await Book.findById({ addedBy: userId });
-
+    const userBooks = await Book.find({ uploadedByUsername: userId });
     if (!userBooks || userBooks.length === 0) {
       return res.status(404).json({ error: "User has not aded any books yet" });
     }

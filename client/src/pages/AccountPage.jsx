@@ -30,6 +30,7 @@ export default function AccountPage() {
     localStorage.removeItem("userId");
     localStorage.removeItem("email");
     localStorage.removeItem("password");
+    localStorage.removeItem("uploadedByUsername");
     setUserData(null);
     navigate("/SignIn");
     setIsAuthenticatedNavbar(false);

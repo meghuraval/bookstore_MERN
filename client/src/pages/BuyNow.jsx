@@ -1,12 +1,11 @@
-// eslint-disable-next-line no-unused-vars
+// BuyNow.jsx
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const BuyNow = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { book } = location.state;
+  const [book, setBook] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
   const handleIncrement = () => {
@@ -14,7 +13,11 @@ const BuyNow = () => {
   };
 
   const handlePayNow = () => {
-    navigate("/PaymentPage");
+    if (book) {
+      navigate("/PaymentPage", { state: { book } });
+    } else {
+      console.log("This didn't work");
+    }
   };
 
   const handleDecrement = () => {
@@ -22,6 +25,19 @@ const BuyNow = () => {
       setQuantity((prevQuantity) => prevQuantity - 1);
     }
   };
+
+  React.useEffect(() => {
+    if (location.state && location.state.book) {
+      setBook(location.state.book);
+    } else {
+      // Handle the case when the book data is not available in the state
+      navigate("/"); // Redirect to the homepage or handle appropriately
+    }
+  }, [location.state, navigate]);
+
+  if (!book) {
+    return null; // or render a loading spinner or message
+  }
 
   const totalPrice = book.price * quantity;
 
@@ -35,7 +51,6 @@ const BuyNow = () => {
       />
       <div className="flex flex-row gap-x-[20px] ml-[360px]">
         <button onClick={handleDecrement}>-</button>
-
         <button onClick={handleIncrement}>+</button>
       </div>
       <p className="text-center my-4">Quantity: {quantity}</p>

@@ -52,11 +52,12 @@ export const SignIn = () => {
 
   return (
     <div>
-      <h1>Sign In</h1>
+      <h1 className="text-3xl text-center mb-10">Sign In</h1>
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
-          <label>Email:</label>
+          <label className="flex justify-center mb-4">Email:</label>
           <input
+            className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none"
             type="email"
             placeholder="Enter your email"
             value={email}
@@ -65,8 +66,9 @@ export const SignIn = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label className="flex justify-center mb-4">Password:</label>
           <input
+            className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none"
             type="password"
             placeholder="Enter your password"
             value={password}
@@ -75,19 +77,25 @@ export const SignIn = () => {
           />
         </div>
         {errorMessage && (
-          <p className="bg-red-500 text-white">{errorMessage}</p>
+          <p className="bg-red-500 text-white mb-4 text-center">
+            {errorMessage}
+          </p>
         )}
         <div>
-          <button type="submit" onClick={handleSignIn}>
+          <button
+            className="flex m-auto bg-blue-500 py-3 px-3 rounded-lg text-white hover:scale-105 transition duration-200"
+            type="submit"
+            onClick={handleSignIn}
+          >
             Sign In
           </button>
         </div>
       </form>
-      <p>
+      <p className="ml-[180px] mt-10">
         Dont have an account?{" "}
         <strong
           onClick={redirectToSignUp}
-          className="hover:underline cursor-pointer"
+          className="hover:underline cursor-pointer text-blue-500"
         >
           Sign Up
         </strong>

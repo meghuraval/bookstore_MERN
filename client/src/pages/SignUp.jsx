@@ -59,11 +59,12 @@ const SignUp = () => {
 
   return (
     <div>
-      <h1>Sign Up</h1>
+      <h1 className="text-3xl text-center mb-10">Sign Up</h1>
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
-          <label>Username:</label>
+          <label className="flex justify-center mb-4">Username:</label>
           <input
+            className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none"
             type="text"
             placeholder="Enter your username"
             value={username}
@@ -72,8 +73,9 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label className="flex justify-center mb-4">Email:</label>
           <input
+            className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none"
             type="email"
             placeholder="Enter your email"
             value={email}
@@ -82,8 +84,9 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label className="flex justify-center mb-4">Password:</label>
           <input
+            className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none"
             type="password"
             placeholder="Enter your password"
             value={password}
@@ -92,8 +95,9 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <label>Re-enter Password:</label>
+          <label className="flex justify-center mb-4">Re-enter Password:</label>
           <input
+            className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none"
             type="password"
             placeholder="Re-enter your password"
             value={reEnterPassword}
@@ -107,7 +111,11 @@ const SignUp = () => {
           ""
         )}
         <div>
-          <button type="submit" onClick={handleSignUp}>
+          <button
+            className="flex m-auto bg-blue-500 py-3 px-3 rounded-lg text-white hover:scale-105 transition duration-200"
+            type="submit"
+            onClick={handleSignUp}
+          >
             Sign Up
           </button>
         </div>

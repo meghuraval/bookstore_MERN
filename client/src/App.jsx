@@ -11,6 +11,14 @@ import AccountPage from "./pages/AccountPage";
 import MyBooksPage from "./pages/MyBooksPage";
 import { BookContext } from "./utils/context/BookContext";
 import SignUp from "./pages/SignUp";
+import BuyNow from "./pages/BuyNow";
+import PaymentPage from "./pages/PaymentPage";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51OUu4XDMoIHzK9O3k2PcryNrjUuBfeiw6WzhGhYghmxyCf92nkyib8Cs4Um1wRsZ8HBiDuUsj1eVKllgBd2mf2w200XVlZPKEm"
+);
 
 function App() {
   const { isAuthenticatedNavbar } = useContext(BookContext);
@@ -27,6 +35,15 @@ function App() {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/AccountPage" element={<AccountPage />} />
           <Route path="/MyBooksPage" element={<MyBooksPage />} />
+          <Route path="/BuyNow" element={<BuyNow />} />
+          <Route
+            path="/PaymentPage"
+            element={
+              <Elements stripe={stripePromise}>
+                <PaymentPage />
+              </Elements>
+            }
+          />
         </Routes>
       </Router>
     </div>

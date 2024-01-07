@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { BookContext } from "../utils/context/BookContext";
+import "../App.css";
 
 export default function AddBookPage() {
   const fileInputRef = useRef(null);
@@ -115,16 +116,30 @@ export default function AddBookPage() {
   }, [setErrorMessage, setSuccessMessage]);
 
   return (
-    <div className="bg-slate-500 h-screen">
-      <div className="bg-slate-500">
+    <div
+      style={{ fontFamily: "'Roboto', sans-serif" }}
+      className="bg-blue-400 min-h-screen"
+    >
+      <div>
         <div className="flex flex-col">
-          <h1 className="font-semibold text-center mt-7 text-3xl">Add Book</h1>
+          <h1
+            style={{ fontFamily: "'Roboto', sans-serif" }}
+            className="font-semibold text-center mt-7 text-3xl text-white"
+          >
+            Add Book
+          </h1>
           <form onSubmit={handleSubmit}>
             <div className="mt-10">
-              <label className="ml-10">Title:</label>
+              <label
+                style={{ fontFamily: "'Roboto', sans-serif" }}
+                className="ml-10"
+              >
+                Title:
+              </label>
               <br />
               <input
-                className="ml-10 mt-5 w-[285px] rounded-md"
+                style={{ fontFamily: "'Roboto', sans-serif" }}
+                className="outline-none ml-10 mt-5 w-[285px] rounded-md pl-3"
                 type="text"
                 name="title"
                 value={formData.title}
@@ -136,7 +151,7 @@ export default function AddBookPage() {
               <label className="ml-10">Author:</label>
               <br />
               <input
-                className="ml-10 mt-5 w-[285px] rounded-md"
+                className="outline-none ml-10 mt-5 w-[285px] rounded-md pl-3"
                 type="text"
                 name="author"
                 value={formData.author}
@@ -148,7 +163,7 @@ export default function AddBookPage() {
               <label className="ml-10">Selling Price:</label>
               <br />
               <input
-                className="ml-10 mt-5 w-[285px] rounded-md"
+                className="outline-none ml-10 mt-5 w-[285px] rounded-md pl-3"
                 type="text"
                 name="price"
                 value={formData.price}
@@ -160,7 +175,7 @@ export default function AddBookPage() {
               <label className="ml-10 w-[40]">Description:</label>
               <br />
               <textarea
-                className="ml-10 mt-5 w-[500px] h-[230px] rounded-xl"
+                className="outline-none ml-10 mt-5 w-[500px] h-[230px] rounded-xl pt-2 pl-3"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}

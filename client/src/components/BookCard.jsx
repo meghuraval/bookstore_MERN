@@ -3,6 +3,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BookContext } from "../utils/context/BookContext";
 import BookModal from "../modals/BookModal";
+import "../App.css";
 
 function BookCard({ book }) {
   const { selectedCard, toggleCardExpansion } = useContext(BookContext);
@@ -23,8 +24,8 @@ function BookCard({ book }) {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="flex flex-wrap justify-center ml-3">
+    <div>
+      <div className="w-[250px] h-[250px]">
         <div className="px-4 mb-4" key={book._id}>
           <div
             className={`max-w-[250px] h-[200px] bg-white shadow-lg rounded-md overflow-hidden hover:scale-105 transition duration-200 my-5 mx-5 cursor-pointer ${
@@ -33,28 +34,38 @@ function BookCard({ book }) {
             onClick={handleCardClick}
           >
             <div className="">
-              {book.pictureURL && (
-                <img
-                  className="h-48 w-full object-cover object-center"
-                  src={book.pictureURL}
-                  alt={book.title}
-                  style={{ objectFit: "cover" }}
-                />
-              )}
-              <div className="p-5">
-                <h2 className="text-sm text-wrap font-semibold mb-2 text-center">
+              <div className="">
+                {book.pictureURL && (
+                  <img
+                    className="bookcard-image"
+                    src={book.pictureURL}
+                    alt={book.title}
+                    style={{ objectFit: "cover" }}
+                  />
+                )}
+              </div>
+              <div className="p-5 bookcard-details">
+                <h2
+                  style={{ fontFamily: "'Roboto', sans-serif" }}
+                  className="text-sm text-wrap font-semibold mb-2 text-center"
+                >
                   {book.title}
                 </h2>
-                <p className="text-sm text-green-700">
-                  Listed price: ${book.price}
+                <p
+                  style={{ fontFamily: "'Roboto', sans-serif" }}
+                  className="text-[15px] text-green-700 text-center"
+                >
+                  Price: ${book.price}
                 </p>
               </div>
             </div>
           </div>
+          <p style={{ fontFamily: "'Roboto', sans-serif" }} className="ml-5">
+            Uploaded By:{" "}
+            <span className="text-blue-500">{uploadedByUsername}</span>
+          </p>
         </div>
       </div>
-      <p>Uploaded By: {uploadedByUsername}</p>
-
       {isModalOpen && <BookModal book={book} onClose={closeModal} />}
     </div>
   );

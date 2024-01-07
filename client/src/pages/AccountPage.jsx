@@ -158,11 +158,13 @@ export default function AccountPage() {
 
   return (
     <div>
-      <h1 className="text-center mb-5 font-semibold">Account Details</h1>
+      <h1 className="text-center mb-16 font-semibold text-3xl mt-5">
+        Account Details
+      </h1>
       {userDetails && (
         <div>
-          <p>
-            Username:{" "}
+          <p className="flex justify-center mb-4">Username: </p>
+          <p className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none">
             {isEditing ? (
               <input
                 type="text"
@@ -174,8 +176,8 @@ export default function AccountPage() {
               userDetails.username
             )}
           </p>
-          <p>
-            Email:{" "}
+          <p className="flex justify-center mb-4">Email: </p>
+          <p className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none">
             {isEditing ? (
               <input
                 type="email"
@@ -188,29 +190,34 @@ export default function AccountPage() {
             )}
           </p>
           {/* Displaying the password in plain text is not recommended for security reasons */}
-          <p>Password: {userDetails.password}</p>
+          <p className="flex justify-center mb-4">Password: </p>
+          <p className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none">
+            {userDetails.password}
+          </p>
         </div>
       )}
-      {successMessage ?? <p>{successMessage}</p>}
-      {errorMessage ?? <p>{errorMessage}</p>}
-      <button
-        className="flex m-auto bg-blue-500 text-white rounded-lg py-2 px-2 hover:scale-105"
-        onClick={isEditing ? handleDoneEditing : handleEditClick}
-      >
-        {isEditing ? "Done Updating 👍" : "Update ✍️"}
-      </button>
-      <button
-        onClick={handleSignOut}
-        className="flex m-auto bg-red-500 text-white rounded-lg py-2 px-2 hover:scale-105 mt-5"
-      >
-        Sign out ✌️
-      </button>
-      <button
-        onClick={deleteUser}
-        className="flex m-auto bg-red-500 text-white rounded-lg py-2 px-2 hover:scale-105 mt-5"
-      >
-        Delete Account 😭
-      </button>
+      {successMessage ?? <p className="text-center">{successMessage}</p>}
+      {errorMessage ?? <p className="text-center">{errorMessage}</p>}
+      <div className="flex flex-row mr-[80px]">
+        <button
+          className="flex m-auto text-blue-500 py-2 px-2 border rounded-lg border-blue-500 hover:scale-105 mr-5 mt-5"
+          onClick={isEditing ? handleDoneEditing : handleEditClick}
+        >
+          {isEditing ? "Done Updating" : "Update"}
+        </button>
+        <button
+          onClick={handleSignOut}
+          className="flex m-auto text-blue-500 py-2 px-2 border rounded-lg border-blue-500 hover:scale-105 mr-5 mt-5"
+        >
+          Sign out
+        </button>
+        <button
+          onClick={deleteUser}
+          className="flex m-auto bg-red-500 rounded-lg text-white py-2 px-2 hover:scale-105 mr-5 mt-5"
+        >
+          Delete Account
+        </button>
+      </div>
     </div>
   );
 }

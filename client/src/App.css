@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+
+
+  .bookcard-image{
+    height: 120px;
+    width: 100%;
+    object-fit: contain;
+    object-fit: cover;
+  }
+  

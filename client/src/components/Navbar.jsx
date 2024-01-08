@@ -16,9 +16,7 @@ const Navbar = () => {
       </div>
       <ul className="flex ml-auto pr-5 mt-8 space-x-10 font-semibold cursor-pointer">
         <Link to="/Homepage">
-          <li className="hover:text-red-600 transition duration-200">
-            Home Page
-          </li>
+          <li className="hover:text-red-600 transition duration-200">Home</li>
         </Link>
         <Link to="/Allbooks">
           <li className="hover:text-red-600 transition duration-200">

@@ -138,7 +138,7 @@
 
   @media screen and (min-width: 730px) {
     .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
-      font-size: 15px; /* Adjust font size for smaller screens */
+      font-size: 13.5px; /* Adjust font size for smaller screens */
     }
   }
 

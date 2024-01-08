@@ -43,24 +43,36 @@ const BuyNow = () => {
 
   return (
     <div>
-      <h1 className="text-center mb-5"> Title: {book.title}</h1>
+      <h1 className="text-center mb-5 text-3xl"> Buy Now </h1>
       <img
-        className="h-[300px] w-[200px] flex m-auto rounded-lg"
+        className="h-[300px] w-[250px] flex m-auto rounded-lg"
         src={book.pictureURL}
         alt={book.title}
       />
-      <div className="flex flex-row gap-x-[20px] ml-[360px]">
-        <button onClick={handleDecrement}>-</button>
-        <button onClick={handleIncrement}>+</button>
+      <p className="text-center my-4 text-[20px]">Total Price: ${totalPrice}</p>
+      <div className="flex flex-row gap-x-[20px] ml-[340px]">
+        <button
+          className="bg-slate-400 py-1 px-2 rounded-lg border border-gray-500"
+          onClick={handleDecrement}
+        >
+          -
+        </button>
+        <button
+          className="bg-slate-400 py-1 px-2 rounded-lg border border-gray-500"
+          onClick={handleIncrement}
+        >
+          +
+        </button>
       </div>
       <p className="text-center my-4">Quantity: {quantity}</p>
-      <p className="text-center my-4 text-[20px]">Total Price: ${totalPrice}</p>
-      <p className="text-center my-4">Description: {book.description}</p>
-      <p className="text-center my-4">Author: {book.author}</p>
+      <h1 className="text-center mb-5"> Title: {book.title}</h1>
       <p className="text-center my-4">Price: ${book.price}</p>
-      <p className="cursor-pointer" onClick={handlePayNow}>
+      <button
+        className="bg-blue-500 py-3 px-3 rounded-lg text-white hover:scale-105 transition duration-200 cursor-pointer flex m-auto"
+        onClick={handlePayNow}
+      >
         Pay Now
-      </p>
+      </button>
     </div>
   );
 };

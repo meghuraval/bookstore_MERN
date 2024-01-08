@@ -9,8 +9,8 @@ const Navbar = () => {
       <div>
         <Link to="/Homepage">
           <img
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/7a3ec529632909.55fc107b84b8c.png"
-            className="h-[80px] w-[120px] cursor-pointer"
+            src="https://logopond.com/logos/fe99fdd3e5cfe5580144445eeb262980.png"
+            className="h-[80px] w-[120px] cursor-pointer hover:scale-105"
           />
         </Link>
       </div>

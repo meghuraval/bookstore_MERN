@@ -10,7 +10,6 @@ const PaymentPage = () => {
   const { book } = location.state;
   const stripe = useStripe();
   const elements = useElements();
-  const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(null);
 
   const handleGoBack = () => {
@@ -32,28 +31,31 @@ const PaymentPage = () => {
     });
 
     if (error) {
-      setPaymentError(error.message);
       setPaymentSuccess(null);
     } else {
       setPaymentSuccess(paymentMethod);
-      setPaymentError(null);
     }
   };
 
   return (
     <div>
-      <button onClick={handleGoBack}>Back</button>
-      <h1>Payment Page</h1>
+      <button className="mt-5 ml-10" onClick={handleGoBack}>
+        Back
+      </button>
+      <h1 className="text-3xl text-center mb-10">Payment Page</h1>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label className="ml-10">
           Card Details
-          <CardElement />
+          <CardElement className="ml-10 mr-10 py-5" />
         </label>
-        <button type="submit" disabled={!stripe}>
+        <button
+          className="bg-blue-500 py-2 px-4 rounded-lg text-white hover:scale-105 transition duration-200 flex m-auto mt-10"
+          type="submit"
+          disabled={!stripe}
+        >
           Pay
         </button>
       </form>
-      {paymentError && <div>Error: {paymentError}</div>}
       {paymentSuccess && <div>Payment successful!</div>}
     </div>
   );

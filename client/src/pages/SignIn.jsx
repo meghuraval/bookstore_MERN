@@ -39,7 +39,7 @@ export const SignIn = () => {
 
       setAuthenticationStatus(true);
       console.log(response.data);
-      navigate("/Homepage");
+      navigate("/AllBooks");
       // Add further logic based on the successful sign-in if needed
     } catch (error) {
       console.log("Sign in error: " + error.response.data.error);

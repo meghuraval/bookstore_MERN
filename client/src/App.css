@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,700&display=swap');
+
 
 
   .bookcard-image{
@@ -7,4 +9,161 @@
     object-fit: contain;
     object-fit: cover;
   }
+
+  .custom-background{
+    background-image: url('https://plus.unsplash.com/premium_photo-1661964155525-fe70c0f7162b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    height: 85vh;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .custom-background::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .blurry-circle{
+  position: absolute;
+  bottom: 50px; /* Adjust the distance from the bottom */
+  left: 50%;
+  top: 270px;
+  transform: translateX(-50%);
+  width: 1500px; /* Adjust the width of the blurry circle */
+  height: 500px; /* Adjust the height of the blurry circle */
+  background: radial-gradient(white 20%, transparent 50%); /* White to transparent radial gradient */
+  border-radius: 50%;
+  filter: blur(100px); /* Apply blur effect */
+  z-index: 2; /* Ensure it's above the image */
+  }
+
+  .button-wrapper {
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5; /* Ensure the button stays above the overlay */
+  }
+
+  .p-wrapper{
+      position: absolute;
+      font-size: xx-large;
+      color: rgba(0, 0, 0, 0.669);
+      font-family: 'Open Sans', sans-serif;
+      top: 60%;
+      left: 50%;
+      width: 390px;
+      transform: translate(-50%, -50%);
+      z-index: 5; /* Ensure the button stays above the overlay */
+    }
   
+
+  .custom-button{
+    border: 2px;
+    border-color: black;
+    border: solid;
+    padding: 10px 20px;
+  }
+
+  .custom-grid-layout {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    columns: 2;
+  }
+
+  .custom-grid-layout > ul{
+    height: 100%;
+    font-size: 2px;
+    overflow: auto;
+    padding: 20px;
+  }
+
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.company, .get-help, .follow-us{
+  padding: 20px;
+}
+
+
+
+
+
+
+
+
+  @media screen and (max-width: 763px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 14px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (max-width: 710px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 11.5px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (max-width: 535px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 5px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 536px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 12.5px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 584px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 12px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (max-width: 655px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 9.25px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 730px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 15px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 830px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 16px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 18px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 1040px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 21px; /* Adjust font size for smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .custom-grid-layout > div h1,
+    .custom-grid-layout > div li
+    .custom-grid-layout > div {
+      font-size: 16px; /* Adjust font size for larger screens */
+    }
+  }

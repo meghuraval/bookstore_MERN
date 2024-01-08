@@ -1,12 +1,20 @@
 /* eslint-disable react/prop-types */
 
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { BookContext } from "../utils/context/BookContext";
 
 function BookModal({ book, onClose }) {
   const navigate = useNavigate();
+  const { isAuthenticatedNavbar } = useContext(BookContext);
 
   const handleBuyNow = () => {
-    navigate("/BuyNow", { state: { book } });
+    if (!isAuthenticatedNavbar) {
+      navigate("/Signin");
+      alert("You must be logged in to purchase a new book");
+    } else {
+      navigate("/BuyNow", { state: { book } });
+    }
   };
 
   return (

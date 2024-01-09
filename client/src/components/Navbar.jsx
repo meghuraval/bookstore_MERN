@@ -9,7 +9,7 @@ const Navbar = () => {
       <div>
         <Link to="/Homepage">
           <img
-            src="https://logopond.com/logos/fe99fdd3e5cfe5580144445eeb262980.png"
+            src="../utils/logo.png"
             className="h-[80px] w-[120px] cursor-pointer hover:scale-105"
           />
         </Link>

@@ -28,7 +28,7 @@ export default function HomePage() {
         <div className="button-wrapper">
           <button
             onClick={handleSignup}
-            className="custom-button hover:scale-105 rounded-xl border-blue-500 text-blue-500"
+            className="custom-button hover:scale-105 rounded-xl border-white text-white bg-blue-500"
           >
             Sign Up
           </button>
@@ -77,7 +77,7 @@ export default function HomePage() {
 
           <div className="flex-grow"></div>
         </div>
-        <img src="https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <img src="../utils/photo2.avif" />
       </section>
 
       <div className="grid-container bg-slate-500 pb-10">

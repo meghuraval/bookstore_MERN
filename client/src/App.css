@@ -11,20 +11,10 @@
   }
 
   .custom-background{
-    background-image: url('https://plus.unsplash.com/premium_photo-1661964155525-fe70c0f7162b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-image: url('../utils/photo3.webp');
     height: 85vh;
     background-position: center;
     background-size: cover;
-  }
-
-  .custom-background::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.2);
   }
 
   .blurry-circle{
@@ -52,7 +42,7 @@
   .p-wrapper{
       position: absolute;
       font-size: xx-large;
-      color: rgba(0, 0, 0, 0.669);
+      color: rgb(0, 0, 0);
       font-family: 'Open Sans', sans-serif;
       top: 60%;
       left: 50%;
@@ -66,7 +56,8 @@
     border: 2px;
     border-color: black;
     border: solid;
-    padding: 10px 20px;
+    padding: 15px 30px;
+    font-size: 20px;
   }
 
   .custom-grid-layout {
@@ -157,6 +148,42 @@
   @media screen and (min-width: 1040px) {
     .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
       font-size: 21px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 1110px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 23px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 1230px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 26px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 1300px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 27px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 30px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 1660px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 35px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 1365px) {
+    .custom-grid-layout > div p, .custom-grid-layout > div li, .custom-grid-layout > h1 {
+      font-size: 28px; /* Adjust font size for smaller screens */
     }
   }
   

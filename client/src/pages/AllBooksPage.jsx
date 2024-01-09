@@ -22,7 +22,7 @@ export default function AllBooksPage() {
   }, []);
 
   return (
-    <div className="flex flex-wrap flex-row">
+    <div className="flex flex-wrap flex-row justify-center">
       {books.length === 0 ? (
         <div className="flex m-auto py-[40%] text-lg">No books added yet</div>
       ) : (

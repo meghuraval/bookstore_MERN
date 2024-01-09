@@ -57,6 +57,13 @@ const PaymentPage = () => {
         </button>
       </form>
       {paymentSuccess && <div>Payment successful!</div>}
+      <p className="text-center mt-[50px]">Dummy Fields</p>
+      <ul className="text-sm text-center">
+        <li>Card Number: 4242 4242 4242 4242</li>
+        <li>Date: 12/30</li>
+        <li>CVC: 242</li>
+        <li>ZIP: 12345</li>
+      </ul>
     </div>
   );
 };

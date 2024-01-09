@@ -36,7 +36,7 @@ function BookModal({ book, onClose }) {
             alt={book.title}
             style={{ objectFit: "contain" }}
           />
-          <p className="text-lg mb-4 mt-5 text-center text-[20px]">
+          <p className="mb-4 mt-5 text-center text-[14px]">
             Description: {book.description}
           </p>
           <p className="text-gray-700 text-center text-[20px]">

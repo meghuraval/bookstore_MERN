@@ -6,9 +6,12 @@ import "../App.css";
 
 export default function AddBookPage() {
   const fileInputRef = useRef(null);
-
   const { setSuccessMessage, setErrorMessage, successMessage, errorMessage } =
     useContext(BookContext);
+
+  const MAX_CHARACTERS = 500;
+  const [remainingCharacters, setRemainingCharacters] =
+    useState(MAX_CHARACTERS);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -16,6 +19,7 @@ export default function AddBookPage() {
     description: "",
     picture: null,
     addedBy: "",
+    price: "",
   });
 
   const handleChange = (e) => {
@@ -32,6 +36,10 @@ export default function AddBookPage() {
         ...prevState,
         [name]: value,
       }));
+    }
+
+    if (name === "description" && value.length <= MAX_CHARACTERS) {
+      setRemainingCharacters(MAX_CHARACTERS - value.length);
     }
   };
 
@@ -132,14 +140,14 @@ export default function AddBookPage() {
             <div className="mt-10">
               <label
                 style={{ fontFamily: "'Roboto', sans-serif" }}
-                className="ml-10"
+                className="flex justify-center"
               >
                 Title:
               </label>
               <br />
               <input
                 style={{ fontFamily: "'Roboto', sans-serif" }}
-                className="outline-none ml-10 mt-5 w-[285px] rounded-md pl-3"
+                className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 mt-5 outline-none"
                 type="text"
                 name="title"
                 value={formData.title}
@@ -148,10 +156,10 @@ export default function AddBookPage() {
               />
             </div>
             <div className="mt-10 mb-10">
-              <label className="ml-10">Author:</label>
+              <label className="flex justify-center">Author:</label>
               <br />
               <input
-                className="outline-none ml-10 mt-5 w-[285px] rounded-md pl-3"
+                className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 outline-none"
                 type="text"
                 name="author"
                 value={formData.author}
@@ -160,10 +168,10 @@ export default function AddBookPage() {
               />
             </div>
             <div className="mt-10 mb-10">
-              <label className="ml-10">Selling Price:</label>
+              <label className="flex justify-center mb-4">Selling Price:</label>
               <br />
               <input
-                className="outline-none ml-10 mt-5 w-[285px] rounded-md pl-3"
+                className="flex m-auto border border-e-gray-500 w-[400px] h-[30px] pl-3 mb-5 outline-none"
                 type="text"
                 name="price"
                 value={formData.price}
@@ -171,22 +179,26 @@ export default function AddBookPage() {
                 required
               />
             </div>
-            <div className="mb-10 h-[250px]">
-              <label className="ml-10 w-[40]">Description:</label>
+            <div className="mb-[70px] h-[250px]">
+              <label className="flex justify-center">Description:</label>
               <br />
               <textarea
-                className="outline-none ml-10 mt-5 w-[500px] h-[230px] rounded-xl pt-2 pl-3"
+                className="flex m-auto border border-e-gray-500 pl-3 mb-5 outline-none w-[500px] h-[210px]"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
+                maxLength={MAX_CHARACTERS}
                 required
               ></textarea>
+              <p className="text-center text-sm">
+                {remainingCharacters} characters remaining
+              </p>
             </div>
-            <div>
-              <label className="ml-10">Picture:</label>
+            <div className="">
+              <label className="flex justify-center">Picture:</label>
               <br />
               <input
-                className="ml-10 mr-5 mt-5"
+                className="flex m-auto pl-3 mb-5 outline-none"
                 type="file"
                 accept="image/*"
                 name="picture"
@@ -202,12 +214,12 @@ export default function AddBookPage() {
             )}
             {successMessage && (
               <p className="bg-green-600 py-1 text-center mt-3 text-white">
-                Succesfully added book
+                Successfully added book
               </p>
             )}
             <button
               type="submit"
-              className="bg-slate-600 rounded-md mb-5 h-10 w-20 ml-[45%] mt-[5%] text-white hover:scale-105 hover:bg-blue-500"
+              className="flex m-auto bg-blue-500 py-3 px-3 rounded-lg text-white hover:scale-105 transition duration-200 mb-5 mt-10"
             >
               Add Book
             </button>

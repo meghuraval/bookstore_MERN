@@ -50,15 +50,15 @@ const BuyNow = () => {
         alt={book.title}
       />
       <p className="text-center my-4 text-[20px]">Total Price: ${totalPrice}</p>
-      <div className="flex flex-row gap-x-[20px] ml-[340px]">
+      <div className="flex">
         <button
-          className="bg-slate-400 py-1 px-2 rounded-lg border border-gray-500"
+          className="flex m-auto bg-blue-500 py-3 px-3 rounded-lg text-white hover:scale-105 transition duration-200"
           onClick={handleDecrement}
         >
           -
         </button>
         <button
-          className="bg-slate-400 py-1 px-2 rounded-lg border border-gray-500"
+          className="flex m-auto bg-blue-500 py-3 px-3 rounded-lg text-white hover:scale-105 transition duration-200"
           onClick={handleIncrement}
         >
           +

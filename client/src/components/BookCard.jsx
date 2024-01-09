@@ -25,7 +25,7 @@ function BookCard({ book }) {
 
   return (
     <div>
-      <div className="w-[250px] h-[250px]">
+      <div className="w-[300px] h-[250px]">
         <div className="px-4 mb-4" key={book._id}>
           <div
             className={`max-w-[250px] h-[200px] bg-white shadow-lg rounded-md overflow-hidden hover:scale-105 transition duration-200 my-5 mx-5 cursor-pointer ${
@@ -44,16 +44,16 @@ function BookCard({ book }) {
                   />
                 )}
               </div>
-              <div className="p-5 bookcard-details">
+              <div className="p-3 bookcard-details">
                 <h2
                   style={{ fontFamily: "'Roboto', sans-serif" }}
-                  className="text-sm text-wrap font-semibold mb-2 text-center"
+                  className="text-[12px] text-wrap font-semibold mb-1 text-center"
                 >
                   {book.title}
                 </h2>
                 <p
                   style={{ fontFamily: "'Roboto', sans-serif" }}
-                  className="text-[15px] text-green-700 text-center"
+                  className="text-[12px] text-green-700 text-center"
                 >
                   Price: ${book.price}
                 </p>

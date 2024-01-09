@@ -39,7 +39,7 @@ export const MyBooks = () => {
   return (
     <div className="mt-5 px-5">
       <h1 className="text-2xl mb-3">My Books</h1>
-      <div className="card-container flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-5">
         {userBooks.length === 0 ? (
           <p>No books added yet.</p>
         ) : (
@@ -49,8 +49,8 @@ export const MyBooks = () => {
                 <h3 className="text-lg mb-2">{`Title: ${book.title}`}</h3>
                 <p className="italic text-gray-600">{`By: ${book.author}`}</p>
               </div>
-              <div className=" p-3">
-                <p className="mb-3 h-[100px]">{`Description: ${book.description}`}</p>
+              <div className="p-3">
+                <p className="mb-3 h-[100px] text-[8px]">{`Description: ${book.description}`}</p>
                 <p
                   onClick={() => deleteBook(book._id)}
                   className="cursor-pointer"

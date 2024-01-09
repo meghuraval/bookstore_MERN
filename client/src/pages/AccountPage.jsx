@@ -198,22 +198,22 @@ export default function AccountPage() {
       )}
       {successMessage ?? <p className="text-center">{successMessage}</p>}
       {errorMessage ?? <p className="text-center">{errorMessage}</p>}
-      <div className="flex flex-row mr-[80px]">
+      <div className="flex flex-row ml-10">
         <button
-          className="flex m-auto text-blue-500 py-2 px-2 border rounded-lg border-blue-500 hover:scale-105 mr-5 mt-5"
+          className="flex m-auto text-blue-500 py-2 px-2 border rounded-lg border-blue-500 hover:scale-105 mt-5"
           onClick={isEditing ? handleDoneEditing : handleEditClick}
         >
           {isEditing ? "Done Updating" : "Update"}
         </button>
         <button
           onClick={handleSignOut}
-          className="flex m-auto text-blue-500 py-2 px-2 border rounded-lg border-blue-500 hover:scale-105 mr-5 mt-5"
+          className="flex m-auto text-blue-500 py-2 px-2 border rounded-lg border-blue-500 hover:scale-105 mt-5"
         >
           Sign out
         </button>
         <button
           onClick={deleteUser}
-          className="flex m-auto bg-red-500 rounded-lg text-white py-2 px-2 hover:scale-105 mr-5 mt-5"
+          className="flex m-auto bg-red-500 rounded-lg text-white py-2 px-2 hover:scale-105 mt-5"
         >
           Delete Account
         </button>

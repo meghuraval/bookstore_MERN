@@ -22,6 +22,6 @@ mongoose.connect(process.env.MONGODB_URL);
 app.use("/books", bookRouter);
 app.use("/user", userRouter);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("listening on port " + process.env.PORT);
 });

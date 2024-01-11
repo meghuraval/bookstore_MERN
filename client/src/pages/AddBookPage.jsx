@@ -82,7 +82,7 @@ export default function AddBookPage() {
     newBookData.append("uploadedByUsername", uploadedByUsername);
     try {
       const response = await axios.post(
-        "http://localhost:3000/books/add",
+        "https://bookstore-mern-1hjk.onrender.com/books/add",
         newBookData,
         {
           headers: {

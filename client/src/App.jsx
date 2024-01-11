@@ -28,6 +28,7 @@ function App() {
       <Router>
         {isAuthenticatedNavbar ? <NavBarSignedIn /> : <Navbar />}
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/Homepage" element={<HomePage />} />
           <Route path="/Allbooks" element={<AllBooksPage />} />
           <Route path="/Addbook" element={<AddBooksPage />} />

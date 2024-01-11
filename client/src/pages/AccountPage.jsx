@@ -34,7 +34,9 @@ export default function AccountPage() {
         return;
       }
 
-      await axios.delete(`http://localhost:3000/user/${userId}`);
+      await axios.delete(
+        `https://bookstore-mern-1hjk.onrender.com/user/${userId}`
+      );
 
       localStorage.removeItem("token");
       localStorage.removeItem("userId");
@@ -78,7 +80,7 @@ export default function AccountPage() {
       };
 
       const response = await axios.get(
-        `http://localhost:3000/user/userdetails/${userId}`,
+        `https://bookstore-mern-1hjk.onrender.com/user/userdetails/${userId}`,
         {
           headers: headers,
           auth: {
@@ -137,13 +139,17 @@ export default function AccountPage() {
         return;
       }
 
-      await axios.put(`http://localhost:3000/user/${userId}`, editedUserData, {
-        headers: headers,
-        auth: {
-          username: email,
-          password: password,
-        },
-      });
+      await axios.put(
+        `https://bookstore-mern-1hjk.onrender.com/user/${userId}`,
+        editedUserData,
+        {
+          headers: headers,
+          auth: {
+            username: email,
+            password: password,
+          },
+        }
+      );
 
       setIsEditing(false);
       fetchUserData();

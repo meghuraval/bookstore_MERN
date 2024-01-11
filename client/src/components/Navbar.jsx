@@ -9,7 +9,7 @@ const Navbar = () => {
       <div>
         <Link to="/Homepage">
           <img
-            src="../utils/logo.png"
+            src="../images/logo.png"
             className="h-[80px] w-[120px] cursor-pointer hover:scale-105"
           />
         </Link>

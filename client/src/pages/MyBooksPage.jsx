@@ -11,7 +11,9 @@ export const MyBooks = () => {
   // Function to delete a book
   const deleteBook = async (bookId) => {
     try {
-      await axios.delete(`http://localhost:3000/books/book/${bookId}`);
+      await axios.delete(
+        `https://bookstore-mern-1hjk.onrender.com/books/book/${bookId}`
+      );
       // Refresh the book list after deletion
       fetchUserBooks();
     } catch (error) {
@@ -22,7 +24,7 @@ export const MyBooks = () => {
   const fetchUserBooks = useCallback(async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/books/user/${userId}`
+        `https://bookstore-mern-1hjk.onrender.com/books/user/${userId}`
       );
       setUserBooks(response.data);
     } catch (error) {

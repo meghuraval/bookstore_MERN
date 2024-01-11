@@ -31,7 +31,7 @@ const signUpUser = async (req, res) => {
     console.log("new user succesfully created");
     // Respond with the newly created user
   } catch (error) {
-    res.status(500).json({ error: "Failed to add user" });
+    res.status(500).json(error);
   }
   //route for this will be "http://localhost:3000/user/createuser"
 };

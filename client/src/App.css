@@ -11,10 +11,14 @@
   }
 
   .custom-background{
-    background-image: url('../utils/photo4.avif');
+    background-image: url('../images/photo4.avif');
     height: 85vh;
     background-position: center;
     background-size: cover;
+  }
+
+  .logo{
+    background-image: url('../images/logo.png');
   }
 
   .blurry-circle{

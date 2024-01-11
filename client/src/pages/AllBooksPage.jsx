@@ -10,7 +10,7 @@ export default function AllBooksPage() {
     async function fetchAllBooks() {
       try {
         const response = await axios.get(
-          "http://localhost:3000/books/allbooks"
+          "https://bookstore-mern-1hjk.onrender.com/books/allbooks"
         );
         setBooks(response.data);
       } catch (error) {

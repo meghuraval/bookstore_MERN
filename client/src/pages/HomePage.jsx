@@ -77,7 +77,7 @@ export default function HomePage() {
 
           <div className="flex-grow"></div>
         </div>
-        <img src="../images/photo2.avif" />
+        <img className="picture2" />
       </section>
 
       <div className="grid-container bg-slate-500 pb-10">

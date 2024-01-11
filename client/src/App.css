@@ -43,6 +43,14 @@
     z-index: 5; /* Ensure the button stays above the overlay */
   }
 
+.logo{
+  content: url('../images/logo.png');
+}
+
+.picture2{
+  content: url('../images/photo2.avif');
+}
+
   .p-wrapper{
       position: absolute;
       font-size: xx-large;

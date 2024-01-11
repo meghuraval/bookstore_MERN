@@ -10,7 +10,7 @@ const app = express();
 app.use(
   cors({
     origin:
-      "https://659f48ddc323e10940e8d408--sensational-croissant-27769d.netlify.app/Addbook",
+      "https://659f48ddc323e10940e8d408--sensational-croissant-27769d.netlify.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   })
@@ -34,6 +34,6 @@ db.once("open", () => {
   console.log("Connected to MongoDB database");
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 4000, "0.0.0.0", () => {
   console.log("listening on port " + process.env.PORT);
 });

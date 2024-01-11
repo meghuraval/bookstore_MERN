@@ -9,7 +9,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://bookstore-mern-1hjk.onrender.com/books/Addbook",
+    origin:
+      "https://659f48ddc323e10940e8d408--sensational-croissant-27769d.netlify.app/Addbook",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   })

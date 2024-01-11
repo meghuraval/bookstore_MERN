@@ -8,10 +8,7 @@ const Navbar = () => {
     <div className="flex flex-row">
       <div>
         <Link to="/Homepage">
-          <img
-            src="../utils/logo.png"
-            className="h-[80px] w-[120px] cursor-pointer hover:scale-105"
-          />
+          <img className="h-[80px] w-[120px] cursor-pointer hover:scale-105 logo" />
         </Link>
       </div>
       <ul className="flex ml-auto pr-5 mt-8 space-x-10 font-semibold cursor-pointer">

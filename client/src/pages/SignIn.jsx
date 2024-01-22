@@ -4,7 +4,7 @@ import axios from "axios";
 import { BookContext } from "../utils/context/BookContext";
 import { useNavigate } from "react-router-dom";
 
-export const SignIn = () => {
+const SignIn = () => {
   const navigate = useNavigate();
   const { errorMessage, setErrorMessage, setAuthenticationStatus } =
     useContext(BookContext);
@@ -106,3 +106,5 @@ export const SignIn = () => {
     </div>
   );
 };
+
+export default SignIn;

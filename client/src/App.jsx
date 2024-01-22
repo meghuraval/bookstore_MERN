@@ -5,7 +5,7 @@ import NavBarSignedIn from "./components/NavBarSignedIn";
 import AllBooksPage from "./pages/AllBooksPage";
 import AddBooksPage from "./pages/AddBookPage";
 import HomePage from "./pages/HomePage";
-import SignIn from "./pages/Signin";
+import SignIn from "./pages/SignIn";
 import { useContext } from "react";
 import AccountPage from "./pages/AccountPage";
 import MyBooksPage from "./pages/MyBooksPage";

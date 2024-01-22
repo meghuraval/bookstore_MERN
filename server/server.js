@@ -9,8 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin:
-      "https://659f48ddc323e10940e8d408--sensational-croissant-27769d.netlify.app",
+    origin: "https://genuine-parfait-23b9eb.netlify.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   })
